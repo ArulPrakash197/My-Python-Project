@@ -15,7 +15,7 @@ def register_details():
 
 @app.route('/welcome', methods=['GET','POST'])
 def welcome():
-    return render_template('register_details.html')
+    return render_template('welcome.html')
 
 
 if __name__ == "__main__":
