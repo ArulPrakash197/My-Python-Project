@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block head %}
+	<title>Register Details</title>
+<script>
+	function Validate()
+	{
+		var namee = document.getElementById("na").value;
+		var usee = document.getElementById("usrr").value;
+		var pss = document.getElementById("pa").value;
+		var conpss = document.getElementById("conn").value;
+		var mai = document.getElementById("ema").value;
+		var pho = document.getElementById("phoee").value;
+		var atposition = mai.indexOf("@");
+		var dotposition = mai.lastIndexOf(".");
+		if(namee == "")
+		{
+			alert("Name cannot be empty");
+		}
+		if(usee == "")
+		{
+			alert("User ID cannot be empty");
+		}
+		if(pss == "")
+		{
+			alert("Password cannot be empty");
+		}
+		if(conpss == "")
+		{
+			alert("Confirm Password cannot be empty");
+		}
+		if(pss != conpss)
+		{
+			alert("Password and Confirm are not matching");
+		}
+		if(atposition < 1 || dotposition<atposition+2 || dotposition +2 >= mai.length)
+		{
+			alert("Enter the valid Email ID");
+		}
+		
+	}
+</script>
+{% endblock %}
+
+{% block body %}
+<form method="post">
+			<br>
+			<br>
+			<p class="highlighted_menu" height="10px" width="100%" colspan="3">&nbsp;&nbsp;Register Details</p>
+			<br>
+			<div style="text-align:center;">
+				<label><b><small>Name *</small></b></label>&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="text" id="na"><br><br>
+				<label><b><small>User ID *</small></b></label>&nbsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&thinsp;<input type="text" id="usrr"><br><br>
+				<label><b><small>Password *</small></b></label>&nbsp;&emsp;&nbsp&emsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="Password" id="pa"><br><br>
+				<label><b><small>Confirm Password *</small></b></label>&nbsp;<input type="Password" id="conn"><br><br>
+				<label><b><small>Email</small></b></label>&nbsp;&emsp;&nbsp&emsp;&emsp;&nbsp&emsp;&thinsp;&emsp;<input type="text" id="ema"><br><br>
+				<label><b><small>Phone Number</small></b></label>&nbsp;&emsp;&emsp;<input type="text" pattern="[0-9]" id="phoee"><br><br>
+				<input class="btnn" type="button" onclick="Validate()" name="" value="Submit">
+			</div>
+</form>
+{% endblock %}
